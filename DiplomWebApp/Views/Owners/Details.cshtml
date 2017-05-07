@@ -1,0 +1,50 @@
+﻿@model DiplomWebApp.Owners
+
+@{
+    ViewBag.Title = "Деталі";
+}
+
+<h2>Деталі</h2>
+
+<div>
+    <h4>Власник</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Firms.NameFirm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Firms.NameFirm)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Назад", "Index")
+</p>

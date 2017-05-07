@@ -1,0 +1,108 @@
+﻿@model IEnumerable<DiplomWebApp.Products>
+
+@{
+    ViewBag.Title = "Усі товари";
+}
+
+<h2>Усі товари</h2>
+
+<p>
+    @if (TempData.Peek("LogIn") as string == "admin")
+    {
+        @Html.ActionLink("Створити новий", "Create")
+    }
+</p>
+<div class="row">
+    <br />
+    <div class=" col-lg-12" style="text-align:center">
+
+        <form class="form-inline" action="/Products/Index" method="post">
+            <label class="sr-only" for="inlineFormInput">П.І.Б.</label>
+            <input name="name" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Найменування...">
+
+            <label class="sr-only" for="inlineFormInput">Код товару</label>
+            <input name="code" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Код...">
+
+
+            <button type="submit" class="btn btn-primary">Пошук</button>
+        </form>
+    </div>
+    <br />
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductToll)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomsDecorated_)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinishCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Owners.Owner)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductToll)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomsDecorated_)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinishCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owners.Owner)
+            </td>
+            <td>
+                @Html.ActionLink("Редагувати", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Детальніше", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Видалити", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,98 @@
+﻿@model DiplomWebApp.Products
+
+@{
+    ViewBag.Title = "Деталі";
+}
+
+<h2>Деталі</h2>
+
+<div>
+    <h4>Товар</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductToll)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductToll)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomsDecorated_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomsDecorated_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartCountry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinishCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinishCountry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owners.Owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owners.Owner)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Назад", "Index")
+</p>
