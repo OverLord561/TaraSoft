@@ -1,31 +1,165 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Головна";
 }
+<br />
+<div class="row">
+    
+    <div class=" col-lg-12" style="text-align:center">
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <form class="form-inline" action="/Owners/Index" method="post">
+            <label class="sr-only" for="inlineFormInput">П.І.Б.</label>
+            <input name="name" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="П.І.Б. ...">
+
+            <label class="sr-only" for="inlineFormInput">Телефон</label>
+            <input name="telephone" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Телефон...">
+
+            <label class="sr-only" for="inlineFormInput">Номер</label>
+            <input name="number" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Номер...">
+
+            <button type="submit" class="btn btn-primary">Пошук власників</button>
+        </form>
+    </div>
+    
 </div>
+
+
+<br />
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Фірми</div>
+        </div>
+
+        <!-- Table -->
+        <div style="height:350px;overflow:auto">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Назва</th>
+                    </tr>
+                </thead>
+                <tbody id="Firms"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div style="text-align:center;" class="panel-heading" id="FirmDetails">Фірма</div>
+        </div>  
+        <ul class="list-group">
+            <li class="list-group-item"><strong style="color:darkred;">Адреса:</strong>&nbsp;<label id="f_adr"></label></li>
+            <li class="list-group-item"><strong style="color:darkred;">Телефон:</strong>&nbsp;<label id="f_tel"></label></li>
+            <li class="list-group-item"><strong style="color:darkred;">Код:</strong>&nbsp;<label id="f_cod"></label></li>
+
+        </ul>
+        
+    </div>
+
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading" id="NameOfFirm">Власники</div>
+        </div>
+
+        <!-- Table -->
+        <div style="height:350px;overflow:auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Власник</th>
+                    </tr>
+                </thead>
+                <tbody id="Owners"></tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div id="OwnerDetails" style="text-align:center;" class="panel-heading">Власник</div>
+        </div>
+
+
+        <ul class="list-group">
+            <li class="list-group-item"><strong style="color:darkred;">Телефон:</strong>&nbsp;<label id="o_tel"></label></li>
+            <li class="list-group-item"><strong style="color:darkred;">Код:</strong>&nbsp;<label id="o_cod"></label></li>
+
+        </ul>
+
+    </div>
+
+
+</div>
+
+
+
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <br />
+    <div class=" col-lg-12" style="text-align:center">
+
+        <form class="form-inline" action="/Products/Index" method="post">
+            <label class="sr-only" for="inlineFormInput">П.І.Б.</label>
+            <input name="name" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Найменування...">
+
+            <label class="sr-only" for="inlineFormInput">Код товару</label>
+            <input name="code" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Код...">
+
+
+            <button type="submit" class="btn btn-primary">Пошук товару</button>
+        </form>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+    <br />
 </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading" id="NameofOwner">Товари</div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Назва
+                    </th>
+                    <th>
+                        Код
+                    </th>
+                    <th>
+                        Об'єм
+                    </th>
+                    <th>
+                        Податок
+                    </th>
+                    <th>
+                        Тип
+                    </th>
+                    <th>
+                        Митниця оформлення
+                    </th>
+                    <th>
+                        Час оформлення
+                    </th>
+                    <th>
+                        Країна відправлення
+                    </th>
+                    <th>
+                        Країна призначення
+                    </th>
+                    
+
+                </tr>
+            </thead>
+            <tbody id="Products"></tbody>
+        </table>
+    </div>
+
+</div>
+<script src="~/Scripts/Renderdata.js" type="text/javascript"></script>

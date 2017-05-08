@@ -64,9 +64,14 @@
                 @Html.DisplayFor(modelItem => item.Firms.NameFirm)
             </td>
             <td>
-                @Html.ActionLink("Редагувати", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Детальніше", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Видалити", "Delete", new { id = item.Id })
+                @if (TempData.Peek("LogIn") as string == "admin")
+                {
+
+                    @Html.ActionLink("Редагувати | ", "Edit", new { id = item.Id })
+                    @Html.ActionLink("Детальніше | ", "Details", new { id = item.Id })
+                    @Html.ActionLink("Видалити", "Delete", new { id = item.Id })
+
+                }
             </td>
         </tr>
     }
