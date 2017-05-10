@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data;
 using System.Data.Entity;
+using DiplomWebApp.Models;
 
 namespace DiplomWebApp.Controllers
 {
@@ -43,7 +44,7 @@ namespace DiplomWebApp.Controllers
             List<Models.OwnersDTO> res = new List<Models.OwnersDTO>();
             foreach (Owners owner in owners)
             {
-                Models.OwnersDTO o = new Models.OwnersDTO { Id = owner.Id, FirmId = owner.FirmID, Name = owner.Owner,Code = owner.PostNumber, Telephone = owner.PhoneNumber };
+                Models.OwnersDTO o = new Models.OwnersDTO { Id = owner.Id, FirmId = owner.FirmId, Name = owner.Owner,Code = owner.PostNumber, Telephone = owner.PhoneNumber };
                 res.Add(o);
             }
             return Json(res, JsonRequestBehavior.AllowGet);
@@ -54,11 +55,11 @@ namespace DiplomWebApp.Controllers
         {
             int firmid = Convert.ToInt32(firmId);
 
-            var owners = db.Owners.Where(x => x.FirmID == firmid).ToList();
+            var owners = db.Owners.Where(x => x.FirmId == firmid).ToList();
             List<Models.OwnersDTO> res = new List<Models.OwnersDTO>();
             foreach (Owners owner in owners)
             {
-                Models.OwnersDTO o = new Models.OwnersDTO { Id = owner.Id, FirmId = owner.FirmID, Name = owner.Owner, Code = owner.PostNumber, Telephone = owner.PhoneNumber };
+                Models.OwnersDTO o = new Models.OwnersDTO { Id = owner.Id, FirmId = owner.FirmId, Name = owner.Owner, Code = owner.PostNumber, Telephone = owner.PhoneNumber };
                 res.Add(o);
             }
             return Json(res, JsonRequestBehavior.AllowGet);
@@ -93,14 +94,14 @@ namespace DiplomWebApp.Controllers
             Owners owner = db.Owners.FirstOrDefault(x => x.Id == Id);
 
 
-            return Json(new Models.OwnersDTO { Id = owner.Id, FirmId = owner.FirmID, Name = owner.Owner, Code = owner.PostNumber, Telephone = owner.PhoneNumber }, JsonRequestBehavior.AllowGet);
+            return Json(new Models.OwnersDTO { Id = owner.Id, FirmId = owner.FirmId, Name = owner.Owner, Code = owner.PostNumber, Telephone = owner.PhoneNumber }, JsonRequestBehavior.AllowGet);
         }
 
 
         public JsonResult GetProducts(string ownerid)
         {
             int ownerID = Convert.ToInt32(ownerid);
-            var products = db.Products.Where( x => x.OwnerID == ownerID).ToList();
+            var products = db.Products.Where( x => x.OwnerId == ownerID).ToList();
             List<Models.ProductsDTO> res = new List<Models.ProductsDTO>();
             foreach (Products prod in products)
             {

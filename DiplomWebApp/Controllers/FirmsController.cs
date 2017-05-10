@@ -7,12 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DiplomWebApp;
+using DiplomWebApp.Models;
 
 namespace DiplomWebApp.Controllers
 {
     public class FirmsController : Controller
     {
-        private MyDBEntities db = new MyDBEntities();
+        private Models.MyDBEntities db = new Models.MyDBEntities();
 
         // GET: Firms
         public ActionResult Index()

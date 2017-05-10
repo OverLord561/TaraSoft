@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DiplomWebApp;
+using DiplomWebApp.Models;
 
 namespace DiplomWebApp.Controllers
 {
@@ -17,7 +18,11 @@ namespace DiplomWebApp.Controllers
         // GET: Owners
         public ActionResult Index()
         {
-            var owners = db.Owners.Include(o => o.Firms);
+            var owners = db.Owners.Include(o => o.Firms).ToList();
+            foreach (Owners o in owners)
+            {
+                o.Firms = db.Firms.FirstOrDefault(x => x.Id == o.FirmId);
+            }
             return View(owners.ToList());
         }
 
@@ -73,7 +78,7 @@ namespace DiplomWebApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FirmID = new SelectList(db.Firms, "Id", "NameFirm", owners.FirmID);
+            ViewBag.FirmID = new SelectList(db.Firms, "Id", "NameFirm", owners.FirmId);
             return View(owners);
         }
 
@@ -89,7 +94,7 @@ namespace DiplomWebApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.FirmID = new SelectList(db.Firms, "Id", "NameFirm", owners.FirmID);
+            ViewBag.FirmID = new SelectList(db.Firms, "Id", "NameFirm", owners.FirmId);
             return View(owners);
         }
 
@@ -106,7 +111,7 @@ namespace DiplomWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FirmID = new SelectList(db.Firms, "Id", "NameFirm", owners.FirmID);
+            ViewBag.FirmID = new SelectList(db.Firms, "Id", "NameFirm", owners.FirmId);
             return View(owners);
         }
 

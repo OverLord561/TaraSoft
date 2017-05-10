@@ -7,17 +7,19 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DiplomWebApp;
+using DiplomWebApp.Models;
 
 namespace DiplomWebApp.Controllers
 {
     public class ProductsController : Controller
     {
-        private MyDBEntities db = new MyDBEntities();
+        private Models.MyDBEntities db = new Models.MyDBEntities();
 
         // GET: Products
         public ActionResult Index()
         {
-            var products = db.Products.Include(p => p.Owners);
+            var products = db.Products.Include(p => p.Owners).ToList();
+            
             return View(products.ToList());
         }
 
@@ -70,7 +72,7 @@ namespace DiplomWebApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.OwnerID = new SelectList(db.Owners, "Id", "Owner", products.OwnerID);
+            ViewBag.OwnerID = new SelectList(db.Owners, "Id", "Owner", products.OwnerId);
             return View(products);
         }
 
@@ -86,7 +88,7 @@ namespace DiplomWebApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.OwnerID = new SelectList(db.Owners, "Id", "Owner", products.OwnerID);
+            ViewBag.OwnerID = new SelectList(db.Owners, "Id", "Owner", products.OwnerId);
             return View(products);
         }
 
@@ -103,7 +105,7 @@ namespace DiplomWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.OwnerID = new SelectList(db.Owners, "Id", "Owner", products.OwnerID);
+            ViewBag.OwnerID = new SelectList(db.Owners, "Id", "Owner", products.OwnerId);
             return View(products);
         }
 

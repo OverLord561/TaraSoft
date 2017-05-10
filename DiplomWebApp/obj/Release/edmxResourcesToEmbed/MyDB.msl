@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище MyDBModelContainer" CdmEntityContainer="MyDBEntities">
+    <EntitySetMapping Name="Firms">
+      <EntityTypeMapping TypeName="MyDBModel.Firms">
+        <MappingFragment StoreEntitySet="Firms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NameFirm" ColumnName="NameFirm" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Owners">
+      <EntityTypeMapping TypeName="MyDBModel.Owners">
+        <MappingFragment StoreEntitySet="Owners">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirmID" ColumnName="FirmID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="PostNumber" ColumnName="PostNumber" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="MyDBModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="ProductValue" ColumnName="ProductValue" />
+          <ScalarProperty Name="ProductToll" ColumnName="ProductToll" />
+          <ScalarProperty Name="stage" ColumnName="stage" />
+          <ScalarProperty Name="CustomsDecorated_" ColumnName="CustomsDecorated " />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartCountry" ColumnName="StartCountry" />
+          <ScalarProperty Name="FinishCountry" ColumnName="FinishCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
